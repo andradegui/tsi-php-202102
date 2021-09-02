@@ -47,3 +47,5 @@ $dias['Sexta'] = "Estudo LSW";
 foreach ($dias as $diasSemana => $atividades) {
     echo "$diasSemana - " . $atividades . "<br>";
 }
+
+$aulas['pi'] = 'segunda';
