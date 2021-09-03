@@ -48,4 +48,46 @@ foreach ($dias as $diasSemana => $atividades) {
     echo "$diasSemana - " . $atividades . "<br>";
 }
 
-$aulas['pi'] = 'segunda';
+echo "<br><br>";
+
+/*$aulas['pi'] = 'segunda';
+$aulas['cms'] = 'terça';
+$aulas['dd'] = 'terça';
+$aulas['bd'] = 'quarta';
+$aulas['ls'] = 'quinta';
+$aulas['lsw'] = 'sexta';
+*/
+
+echo "<pre>"; //formata para a depuração
+
+//var_dump($aulas); //depura o código
+
+
+
+//foreach($aulas as $materias => $dias) {
+    //echo "<h1>a materia $materias é no dia $dias\n</h1>";
+//}
+
+unset($dias);
+
+//declaro a matriz, e a subindice, e atribuo um valor
+$aulas['segunda'][0] = 'pi';
+$aulas['terça'][0] = 'cms';
+$aulas['terça'][1] = 'dd';
+$aulas['quarta'][0] = 'bd';
+$aulas['quinta'] [0]= 'ls';
+$aulas['sexta'] [1]= 'lsw';
+
+echo "\n\n";
+
+foreach($aulas as $dias => $materias) { //coluna
+    echo "Aula(s) na $dias: ";
+
+    foreach($materias as $materias) { //linha
+        echo "$materias, ";
+    }
+
+    echo "\n";
+}
+
+include('linkform.html');
