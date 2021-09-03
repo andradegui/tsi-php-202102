@@ -10,7 +10,7 @@
 <body>
     <form method="post" action="recebe.php">
         <label for="email">Email</label>
-        <input type="email" id="email" nome="email" placeholder="exemplo@gmail.com" autocomplete="off">
+        <input type="email" id="email" name="email" placeholder="exemplo@gmail.com" autocomplete="off">
         <label for="password">Senha</label>
         <input type="password" id="password" name="password" autocomplete="off">
         <input type="submit" value="Entrar">
