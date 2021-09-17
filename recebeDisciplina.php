@@ -14,11 +14,17 @@ echo "<br><br>";
 
 echo $_POST['desc'];
 
+echo "<br><br>"; 
+
+if( empty($_POST['nmDisciplina']) || empty($_POST['dia'])) {
+    die('ERRO! os campos nome e dia são obrigatórios');
+}
+
 //abro o arquivo pra gravar mais coisas
 $arquivo = fopen('bdmateria.csv', 'a');
 
 //escrevo o arquivo
-fwrite($arquivo,    $_POST['nmDisciplina'] . ';' . 
+fwrite($arquivo,    $_POST['ç'] . ';' . 
                     $_POST['nmProfessor'] . ';' . 
                     $_POST['dia'] . ';' . 
                     $_POST['desc'] . "\r\n" );

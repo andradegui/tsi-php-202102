@@ -7,14 +7,14 @@
     <title>Formulario</title>
 </head>
 <body>
-    <form method="post" action="recebeDisciplina.php">
+    <form method="post" action="gravaDisciplinaBD.php">
         <label for="nome">Nome Disciplina</label>
-        <input type="text" id="nmDisciplina" name="nmDisciplina" placeholder="Linguagens de Servidor" autocomplete="off">
+        <input type="text" id="nome" name="nome" placeholder="Linguagens de Servidor" autocomplete="off">
         
         <br>
 
         <label for="nome">Professor</label>
-        <input type="text" id="nmProfessor" name="nmProfessor" autocomplete="off">
+        <input type="text" id="prof" name="prof" autocomplete="off">
 
         <br>
 
@@ -24,11 +24,13 @@
         <br>
 
         <label for="nome">Descrição</label>
-        <input type="text" id="desc" name="desc" autocomplete="off">
+        <input type="text" id="descricao" name="descricao" autocomplete="off">
 
         <br>
 
         <input type="submit" value="Cadastrar">
     </form>
+    <br><br>
+    <a href="recebeComGet.php">Enviar dado com get</a>
 </body>
 </html>
