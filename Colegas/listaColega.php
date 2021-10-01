@@ -11,9 +11,9 @@ $db_pass = '';
 $db = new PDO($db_dsn, $db_user, $db_pass);
 
 $sql = 'SELECT 
-            nome, ano, id
+            nome, id
         FROM 
-            dbfilme'; 
+            colegas'; 
             
 $_GET{'apagado'} = $_GET{'apagado'} ?? false;
 
@@ -31,28 +31,28 @@ if($_GET{'gravado'} == 1){
 
 
             
-echo '<form action="apagaFilme.php" method="post">
+echo '<form action="deletaColega.php" method="post">
 
 
     <table border="1">
 
         <tr>
-            <th>Nome</th> <th>Ano</th> <th>Apagar</th>                      
+            <th>Nome</th>  <th>Apagar</th> <th>Alterar Nome (Escreva)</th> <th>Alterar</th>                       
         </tr>';
 
 foreach ($db->query($sql) as $registro){
     echo "
         <tr>
             <td>{$registro['nome']}</td> 
-            <td>{$registro['ano']}</td>
             <td><button name='apagar' value='{$registro['id']}'>apagar</button></td>
-            
-                  
+            <td><input name='alterarNome' id='alterarNome'></input></td>
+            <td><button name='updateNome' id='updateNome' value='{$registro['id']}'>alterar</button></td>                  
         </tr>";
 }
 
 echo '</table>
-    <a href="formFilme.html">Gravar Filme</>
+    <a href="formColega.html">Gravar Colega</>
+
     </form>';
 
 
