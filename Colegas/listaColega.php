@@ -6,7 +6,7 @@ error_reporting(E_ALL);
 
 session_start();
 
-if(!isset($_SESSION['id'])) {
+if (!isset($_SESSION['id'])) {
 
     echo 'Faça o login antes';
     exit();
@@ -18,43 +18,26 @@ $db_pass = '';
 
 $db = new PDO($db_dsn, $db_user, $db_pass);
 
-$sql = 'SELECT 
-            nome, id
-        FROM 
-            colegas'; 
-            
-$_GET{'apagado'} = $_GET{'apagado'} ?? false;
-
-if($_GET{'apagado'} == 1){
-    echo "<font colors='green'>Apagado com sucesso!</font><br>";
-}
-
-$_GET{'gravado'} = $_GET{'gravado'} ?? false;
-
-
-if($_GET{'gravado'} == 1){
-    echo "<font colors='green'>Gravado com sucesso!</font><br>";
-}
-
-
-
-            
 echo '<form action="deletaColega.php" method="post">
 
-
     <table border="1">
-
         <tr>
-            <th>Nome</th>  <th>Apagar</th> <th>Alterar Nome (Escreva)</th> <th>Alterar</th>                       
+            <th>ID</th> <th>Nome</th> <th>Ações</th>                         
         </tr>';
 
-foreach ($db->query($sql) as $registro){
+$stmt = $db->query('SELECT id, nome FROM colegas');  
+
+while ($registro = $stmt->fetch(\PDO::FETCH_ASSOC)){
+
     echo "
         <tr>
+            <td>{$registro['id']}</td> 
             <td>{$registro['nome']}</td> 
-            <td><button name='apagar' value='{$registro['id']}'>apagar</button></td>
-            <td><input name='alterarNome' id='alterarNome'></input></td>
-            <td><button name='updateNome' id='updateNome' value='{$registro['id']}'>alterar</button></td>                  
+            <td>
+                <button name='apagar' value='{$registro['id']}'>apagar</button>
+                <button name='alterar' value='{$registro['id']}'>alterar</button>
+            </td>
+            
         </tr>";
 }
 
@@ -62,7 +45,5 @@ echo '</table>
     <a href="formColega.html">Gravar Colega</>
 
     </form>';
-
-//teste
 
 

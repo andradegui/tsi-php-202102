@@ -22,7 +22,7 @@ $stmt = $db->prepare('  INSERT colegas
 $valores[':nome'] = $_POST['nome'];                        
 
 if($stmt->execute($valores)) {
-    echo "<br> Dados gravados com sucesso!";
+    echo "<br> Dados gravados com sucesso! <br> <a href='formColega.html'></a>";
 }
 else{
     echo "<br> Dados nao gravados com sucesso :/";

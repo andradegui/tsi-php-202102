@@ -6,12 +6,7 @@ error_reporting(E_ALL);
 
 session_start();
 
-
-$db_dsn = 'mysql:host=localhost;port=3306;dbname=ling_serv';
-$db_user = 'root';
-$db_pass = '';
-
-$db = new PDO($db_dsn, $db_user, $db_pass);
+require_once('banco/conecta.php');
 
 $stmt = $db->prepare('  SELECT id, nome, senha 
                         FROM usuario 
