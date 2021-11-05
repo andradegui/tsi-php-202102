@@ -3,11 +3,28 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-$serverName = "serverName\\sqlexpress"; //serverName\instanceName
+/*
+phpinfo();
+exit();
+*/
 
-// Since UID and PWD are not specified in the $connectionInfo array,
-// The connection will be attempted using Windows Authentication.
-$connectionInfo = array( "Database"=>"dbName");
-//$conn = sqlsrv_connect( $serverName, $connectionInfo);
+define('DB_HOST', 'localhost');
+define('DB_PORT', '1433');//mudar
+define('DB_NAME', 'pi');//mudar
+define('DB_USER', 'tsi');//mjudar
+define('DB_PASS', 'SistemaInternet123');//mudar
 
-//aprendendo PHP
+$bd_dsn = 'odbc:Driver={SQL Server};Server=' . DB_HOST . ';Port=' . DB_PORT . ';Database=' . DB_NAME;
+$bd_user = DB_USER;
+$bd_pass = DB_PASS;
+
+//Conectamos com o Banco MySQL
+
+try{
+
+    $bd = new PDO($bd_dsn, $bd_user, $bd_pass);
+} catch (Exception $e ){
+    echo "<pre>";
+    var_dump($e);
+}
+
